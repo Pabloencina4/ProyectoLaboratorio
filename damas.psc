@@ -270,7 +270,34 @@ SubProceso inicio()
     Escribir "                                             +-------------------------------------------+"
 	pausaGeneral()
 FinSubProceso
-
+SubProceso inicioJuego(ganador, turno,tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
+	Si ganador <> 1 Entonces
+		Escribir "                                         Es el turno de las fichas ", turno
+		Repetir
+			flag = 0
+			Escribir "                                         Introduce la posición inicial (x y): "
+			Leer desdeX, desdeY
+			Si desdeX < 1 o desdeX > 8 o desdeY < 1 o desdeY > 8 Entonces
+				Escribir "                                         Coordenadas iniciales fuera del rango. Deben estar entre 1 y 8."
+				flag = 0 
+			Sino
+				flag = 1
+			Fin Si
+		Hasta Que flag = 1    
+		Repetir
+			flag = 0
+			Escribir "                                         Introduce la posición final (x y): "
+			Leer hastaX, hastaY
+			Si hastaX < 1 o hastaX > 8 o hastaY < 1 o hastaY > 8 Entonces
+				Escribir "                                         Coordenadas finales fuera del rango. Deben estar entre 1 y 8."
+				flag = 0 
+			Sino
+				flag = 1
+			Fin Si
+		Hasta Que flag = 1
+		moverFicha(tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
+	FinSi
+FinSubProceso
 Algoritmo damas
     Definir tablero, turno Como Caracter
     Definir desdeX, desdeY, hastaX, hastaY, opc, flag, ganador, fichaEnemiga Como Entero
@@ -290,33 +317,7 @@ Algoritmo damas
                 mostrarTablero(tablero)
 				ganador = verificarFichasRestantes(tablero)
 				//si ganador es 1 termino el do while 
-				Si ganador <> 1 Entonces
-					Escribir "                                         Es el turno de las fichas ", turno
-					Repetir
-						flag = 0
-						Escribir "                                         Introduce la posición inicial (x y): "
-						Leer desdeX, desdeY
-						Si desdeX < 1 o desdeX > 8 o desdeY < 1 o desdeY > 8 Entonces
-							Escribir "                                         Coordenadas iniciales fuera del rango. Deben estar entre 1 y 8."
-							flag = 0 
-						Sino
-							flag = 1
-						Fin Si
-					Hasta Que flag = 1    
-					Repetir
-						flag = 0
-						Escribir "                                         Introduce la posición final (x y): "
-						Leer hastaX, hastaY
-						Si hastaX < 1 o hastaX > 8 o hastaY < 1 o hastaY > 8 Entonces
-							Escribir "                                         Coordenadas finales fuera del rango. Deben estar entre 1 y 8."
-							flag = 0 
-						Sino
-							flag = 1
-						Fin Si
-					Hasta Que flag = 1
-					moverFicha(tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
-				FinSi
-               
+				inicioJuego(ganador, turno,tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
                 Si turno = "N" Entonces
                     turno = "B"
                 Sino
