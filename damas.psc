@@ -103,7 +103,6 @@ SubProceso movimientosDama(tablero, desdeX, desdeY, hastaX, hastaY, deltaX, delt
 			fin si 		
 		fin para
 		
-		
 		// solo puede capturar una ficha enemiga en la misma diagonal
         Si fichaEnemiga = 1 y movimientoValido Entonces
 			// Verificar que la casilla final esté vacía para realizar la captura
@@ -188,9 +187,9 @@ FinSubProceso
 SubProceso mostrarTablero(tablero)
     Escribir "                                             1   2   3   4   5   6   7   8"
     Escribir "                                           +---+---+---+---+---+---+---+---+"
-    Para i = 1 Hasta 8
+    Para i = 1 Hasta 8 Hacer
         Escribir Sin Saltar "                                        ",i, "  |"
-        Para j = 1 Hasta 8
+        Para j = 1 Hasta 8 hacer
             Escribir Sin Saltar " ", tablero[i, j], " |"
         FinPara
         Escribir "                                         " 
@@ -270,7 +269,8 @@ SubProceso inicio()
     Escribir "                                             +-------------------------------------------+"
 	pausaGeneral()
 FinSubProceso
-SubProceso inicioJuego(ganador, turno,tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
+
+SubProceso inicioJuego(ganador, turno, tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
 	Si ganador <> 1 Entonces
 		Escribir "                                         Es el turno de las fichas ", turno
 		Repetir
@@ -306,7 +306,7 @@ Algoritmo damas
     Repetir
         Limpiar Pantalla
         mostrarMenu(opc)
-        Leer opc
+        Leer opc 
         Si opc = 1 Entonces
 			turno = "N"
 			cargarTablero(tablero)
