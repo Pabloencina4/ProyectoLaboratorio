@@ -1,4 +1,4 @@
-funcion ganadores<- verificarFichasRestantes(tablero)
+Funcion ganadores<- verificarFichasRestantes(tablero)
     Definir i ,j ,blancas ,negras Como Entero
 	blancas = 0
 	negras = 0
@@ -217,7 +217,7 @@ SubProceso cargarTablero(tablero)
     FinPara
 FinSubProceso
 
-SubProceso pausaGeneral()
+SubProceso pausaGeneral
 	Definir pausa Como caracter 
 	Escribir "                                         Presione Enter para continuar...."
     Leer pausa
@@ -234,7 +234,7 @@ SubProceso mostrarMenu(opc)
     Escribir "                                         Selecciona una opcion: "
 FinSubProceso
 
-SubProceso mostrarInstrucciones()
+SubProceso mostrarInstrucciones
 	Limpiar Pantalla
 	Definir pausa Como entero
     Escribir "                                         +----------------------------------------------------------------------+"
@@ -253,7 +253,7 @@ SubProceso mostrarInstrucciones()
     Leer pausa
 FinSubProceso
 
-SubProceso inicio()
+SubProceso inicio
 	Escribir "                                             +-------------------------------------------+"
     Escribir "                                             |                                           |"
     Escribir "                                             |                                           |"
