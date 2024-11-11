@@ -15,12 +15,12 @@ Funcion ganadores<- verificarFichasRestantes(tablero)
     Fin Para
     // verificar si es cero
     Si negras = 0 Entonces
-        Escribir "                                         ¡Felicitaciones **** Blancas ganan!!!"
+        Escribir "                                              ¡Felicitaciones **** Blancas ganan!!!"
 		pausaGeneral()
 		ganadores = 1
     Fin Si
     Si blancas = 0 Entonces
-        Escribir "                                         ¡Felicitaciones **** Negras ganan!!!"
+        Escribir "                                              ¡Felicitaciones **** Negras ganan!!!"
 		pausaGeneral()
 		ganadores = 1
     Fin Si
@@ -33,10 +33,10 @@ subProceso moverFicha(tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemi
     deltaX = hastaX - desdeX
     
     Si tablero[desdeY, desdeX] = " " Entonces
-        Escribir "                                         No hay ficha en la posicion inicial"
+        Escribir "                                              No hay ficha en la posicion inicial"
     Sino
         Si tablero[hastaY, hastaX] <> " " Entonces
-            Escribir "                                         La posicion final no esta vacia"
+            Escribir "                                              La posicion final no esta vacia"
         Sino
             // verificar movimiento diagonal
 			//abs para un numero positivo
@@ -51,7 +51,7 @@ subProceso moverFicha(tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemi
                     Fin Si
                 Fin Si
             Sino
-                Escribir "                                         Movimiento no valido"
+                Escribir "                                              Movimiento no valido"
             Fin Si
         Fin Si
     Fin Si
@@ -112,7 +112,7 @@ SubProceso movimientosDama(tablero, desdeX, desdeY, hastaX, hastaY, deltaX, delt
                 tablero[hastaY, hastaX] = tablero[desdeY, desdeX]  
                 tablero[desdeY, desdeX] = " "  
             Sino
-                Escribir "                                         La casilla final no está vacía."
+                Escribir "                                              La casilla final no está vacía."
             Fin Si
 			
 		Sino
@@ -123,15 +123,15 @@ SubProceso movimientosDama(tablero, desdeX, desdeY, hastaX, hastaY, deltaX, delt
 					tablero[hastaY, hastaX] = tablero[desdeY, desdeX] 
 					tablero[desdeY, desdeX] = " " 
 				Sino
-					Escribir "                                         La casilla final no está vacía."
+					Escribir "                                              La casilla final no está vacía."
 				Fin Si
 				
 			SiNo
-				Escribir "                                         Movimiento no válido, hay más de una ficha enemiga o un obstáculo en el camino."
+				Escribir "                                              Movimiento no válido, hay más de una ficha enemiga o un obstáculo en el camino."
 			FinSi
 		FinSi
 	Sino
-        Escribir "                                         Movimiento no válido, las damas solo se mueven en diagonal."	
+        Escribir "                                              Movimiento no válido, las damas solo se mueven en diagonal."	
 		
 	FinSi
 	
@@ -140,7 +140,7 @@ Fin SubProceso
 SubProceso movimientosNormales(tablero, desdeX, desdeY, hastaX, hastaY, turno, deltaY, deltaX, fichaEnemiga)
     // validación de direccion correcta 
 	Si (turno = "N" y deltaY >= 0) o (turno = "B" y deltaY <= 0) Entonces
-		Escribir "                                         Movimiento no valido. Las fichas solo se mueven hacia adelante."
+		Escribir "                                              Movimiento no valido. Las fichas solo se mueven hacia adelante."
 	Sino
 		// verificar si el movimiento es de un espacio diagonal
 		Si (Abs(deltaX) = 1 y Abs(deltaY) = 1) Entonces
@@ -149,7 +149,7 @@ SubProceso movimientosNormales(tablero, desdeX, desdeY, hastaX, hastaY, turno, d
 				tablero[hastaY, hastaX] = tablero[desdeY, desdeX]
 				tablero[desdeY, desdeX] = " "
 			Sino
-				Escribir "                                         La casilla final no está vacía."
+				Escribir "                                              La casilla final no está vacía."
 			Fin Si
 			// verificar si es un movimiento de captura
 		Sino Si (Abs(deltaX) = 2 y Abs(deltaY) = 2) Entonces
@@ -157,7 +157,7 @@ SubProceso movimientosNormales(tablero, desdeX, desdeY, hastaX, hastaY, turno, d
 				capturarY = desdeY + (deltaY / 2)
 				// verificar que hay una ficha para capturar
 				Si tablero[capturarY, capturarX] = " " Entonces
-					Escribir "                                         No hay ficha para capturar."
+					Escribir "                                              No hay ficha para capturar."
 				Sino
 					// verificar si es una ficha enemiga 
 					Si (turno = "N" y tablero[capturarY, capturarX] = "B") o (turno = "N" y tablero[capturarY, capturarX] = "R") o (turno = "B" y tablero[capturarY, capturarX] = "N") o (turno = "B" y tablero[capturarY, capturarX] = "D") Entonces
@@ -167,11 +167,11 @@ SubProceso movimientosNormales(tablero, desdeX, desdeY, hastaX, hastaY, turno, d
 						tablero[desdeY, desdeX] = " "
 						fichaEnemiga = 1
 					Sino
-						Escribir "                                         Solo puedes capturar fichas del oponente."
+						Escribir "                                              Solo puedes capturar fichas del oponente."
 					Fin Si
 				Fin Si
 			Sino
-				Escribir "                                         Movimiento no valido. Solo puedes moverte un espacio diagonal o capturar."
+				Escribir "                                              Movimiento no valido. Solo puedes moverte un espacio diagonal o capturar."
 			Fin Si
 		Fin Si
 	fin si
@@ -185,15 +185,15 @@ SubProceso movimientosNormales(tablero, desdeX, desdeY, hastaX, hastaY, turno, d
 FinSubProceso
 
 SubProceso mostrarTablero(tablero)
-    Escribir "                                             1   2   3   4   5   6   7   8"
-    Escribir "                                           +---+---+---+---+---+---+---+---+"
+    Escribir "                                                  1   2   3   4   5   6   7   8"
+    Escribir "                                                +---+---+---+---+---+---+---+---+"
     Para i = 1 Hasta 8 Hacer
-        Escribir Sin Saltar "                                        ",i, "  |"
+        Escribir Sin Saltar "                                             ",i, "  |"
         Para j = 1 Hasta 8 hacer
             Escribir Sin Saltar " ", tablero[i, j], " |"
         FinPara
         Escribir "                                         " 
-        Escribir "                                           +---+---+---+---+---+---+---+---+"
+        Escribir "                                                +---+---+---+---+---+---+---+---+"
     FinPara
 FinSubProceso
 
@@ -219,66 +219,66 @@ FinSubProceso
 
 SubProceso pausaGeneral
 	Definir pausa Como caracter 
-	Escribir "                                         Presione Enter para continuar...."
+	Escribir "                                                 Presione Enter para continuar...."
     Leer pausa
 FinSubProceso
 
 SubProceso mostrarMenu(opc)
-    Escribir "                                         +--------------------------------------------+"
-    Escribir "                                         |                   MENU                     |"
-    Escribir "                                         +--------------------------------------------+"
-    Escribir "                                         | 1. Jugar                                   |"
-    Escribir "                                         | 2. Instrucciones                           |"
-    Escribir "                                         | 3. Salir                                   |"
-    Escribir "                                         +--------------------------------------------+"
-    Escribir "                                         Selecciona una opcion: "
+    Escribir "                                              +--------------------------------------------+"
+    Escribir "                                              |                   MENU                     |"
+    Escribir "                                              +--------------------------------------------+"
+    Escribir "                                              | 1. Jugar                                   |"
+    Escribir "                                              | 2. Instrucciones                           |"
+    Escribir "                                              | 3. Salir                                   |"
+    Escribir "                                              +--------------------------------------------+"
+    Escribir "                                              Selecciona una opcion: "
 FinSubProceso
 
 SubProceso mostrarInstrucciones
 	Limpiar Pantalla
 	Definir pausa Como entero
-    Escribir "                                         +----------------------------------------------------------------------+"
-    Escribir "                                         |   ___ _   _ ____ _____ ____  _   _  ____ ___ ___  _   _ _____ ____   |"
-	Escribir "                                         |  |_ _| \ | / ___|_   _|  _ \| | | |/ ___|_ _/ _ \| \ | | ____/ ___|  |"
-	Escribir "                                         |   | ||  \| \___ \ | | | |_) | | | | |    | | | | |  \| |  _| \___ \  |"
-	Escribir "                                         |   | || |\  |___) || | |  _ <| |_| | |___ | | |_| | |\  | |___ ___) | |"
-	Escribir "                                         |  |___|_| \_|____/ |_| |_| \_\\___/ \____|___\___/|_| \_|_____|____/  |"
-    Escribir "                                         +----------------------------------------------------------------------+"
-    Escribir "                                         | 1. El objetivo es capturar todas las fichas del oponente o           |"
-    Escribir "                                         |    bloquear su movimiento.                                           |"
-    Escribir "                                         | 2. Las fichas se mueven en diagonal.                                 |"
-    Escribir "                                         | 3. Al llegar al final del tablero, una ficha se convierte en dama.   |"
-    Escribir "                                         +----------------------------------------------------------------------+"
-	Escribir "                                         Presiona Enter para regresar al menu."
+    Escribir "                                              +----------------------------------------------------------------------+"
+    Escribir "                                              |   ___ _   _ ____ _____ ____  _   _  ____ ___ ___  _   _ _____ ____   |"
+	Escribir "                                              |  |_ _| \ | / ___|_   _|  _ \| | | |/ ___|_ _/ _ \| \ | | ____/ ___|  |"
+	Escribir "                                              |   | ||  \| \___ \ | | | |_) | | | | |    | | | | |  \| |  _| \___ \  |"
+	Escribir "                                              |   | || |\  |___) || | |  _ <| |_| | |___ | | |_| | |\  | |___ ___) | |"
+	Escribir "                                              |  |___|_| \_|____/ |_| |_| \_\\___/ \____|___\___/|_| \_|_____|____/  |"
+    Escribir "                                              +----------------------------------------------------------------------+"
+    Escribir "                                              | 1. El objetivo es capturar todas las fichas del oponente o           |"
+    Escribir "                                              |    bloquear su movimiento.                                           |"
+    Escribir "                                              | 2. Las fichas se mueven en diagonal.                                 |"
+    Escribir "                                              | 3. Al llegar al final del tablero, una ficha se convierte en dama.   |"
+    Escribir "                                              +----------------------------------------------------------------------+"
+	Escribir "                                              Presiona Enter para regresar al menu."
     Leer pausa
 FinSubProceso
 
 SubProceso inicio
-	Escribir "                                             +-------------------------------------------+"
-    Escribir "                                             |                                           |"
-    Escribir "                                             |                                           |"
-    Escribir "                                             |                                           |"
-    Escribir "                                             |     ____    _    __  __    _    ____      |"
-    Escribir "                                             |    |  _ \  / \  |  \/  |  / \  / ___|     |"
-    Escribir "                                             |    | | | |/ _ \ | |\/| | / _ \ \___ \     |"
-    Escribir "                                             |    | |_| / ___ \| |  | |/ ___ \ ___) |    |"
-    Escribir "                                             |    |____/_/   \_\_|  |_/_/   \_\____/     |"
-    Escribir "                                             |                                           |"
-    Escribir "                                             |                                           |"
-    Escribir "                                             |                                           |"
-    Escribir "                                             +-------------------------------------------+"
+	Escribir "                                                 +-------------------------------------------+"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 |     ____    _    __  __    _    ____      |"
+    Escribir "                                                 |    |  _ \  / \  |  \/  |  / \  / ___|     |"
+    Escribir "                                                 |    | | | |/ _ \ | |\/| | / _ \ \___ \     |"
+    Escribir "                                                 |    | |_| / ___ \| |  | |/ ___ \ ___) |    |"
+    Escribir "                                                 |    |____/_/   \_\_|  |_/_/   \_\____/     |"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 |                                           |"
+    Escribir "                                                 +-------------------------------------------+"
 	pausaGeneral()
 FinSubProceso
 
 SubProceso inicioJuego(ganador, turno, tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
 	Si ganador <> 1 Entonces
-		Escribir "                                         Es el turno de las fichas ", turno
+		Escribir "                                              Es el turno de las fichas ", turno
 		Repetir
 			flag = 0
-			Escribir "                                         Introduce la posición inicial (x y): "
+			Escribir "                                              Introduce la posición inicial (x y): "
 			Leer desdeX, desdeY
 			Si desdeX < 1 o desdeX > 8 o desdeY < 1 o desdeY > 8 Entonces
-				Escribir "                                         Coordenadas iniciales fuera del rango. Deben estar entre 1 y 8."
+				Escribir "                                              Coordenadas iniciales fuera del rango. Deben estar entre 1 y 8."
 				flag = 0 
 			Sino
 				flag = 1
@@ -286,10 +286,10 @@ SubProceso inicioJuego(ganador, turno, tablero, desdeX, desdeY, hastaX, hastaY, 
 		Hasta Que flag = 1    
 		Repetir
 			flag = 0
-			Escribir "                                         Introduce la posición final (x y): "
+			Escribir "                                              Introduce la posición final (x y): "
 			Leer hastaX, hastaY
 			Si hastaX < 1 o hastaX > 8 o hastaY < 1 o hastaY > 8 Entonces
-				Escribir "                                         Coordenadas finales fuera del rango. Deben estar entre 1 y 8."
+				Escribir "                                              Coordenadas finales fuera del rango. Deben estar entre 1 y 8."
 				flag = 0 
 			Sino
 				flag = 1
@@ -316,7 +316,7 @@ Algoritmo damas
                 Limpiar Pantalla
                 mostrarTablero(tablero)
 				ganador = verificarFichasRestantes(tablero)
-				//si ganador es 1 termino el do while 
+				//si ganador es 1 termino el repetir
 				inicioJuego(ganador, turno,tablero, desdeX, desdeY, hastaX, hastaY, turno, fichaEnemiga)
                 Si turno = "N" Entonces
                     turno = "B"
@@ -332,5 +332,5 @@ Algoritmo damas
         Fin Si
     Hasta Que opc = 3
     Limpiar Pantalla
-    Escribir "                                         Saliendo del juego..."
+    Escribir "                                              Saliendo del juego..."
 FinAlgoritmo
